@@ -22,13 +22,15 @@ namespace TestMVVM.ViewModels
         {
             //UpdateIt = new RelayCommand();
             ProgressStatus = 0;
-            Max = 100000000;
+            Max = 10000000; // Max cannot be less than 100
             onePercent = Max / 100;
         }
 
 
         public void Go()
         {
+            ResetValues();
+
             for (int i = 0; i <= Max; i++)
             {
                 ProgressStatus = i;
@@ -40,6 +42,14 @@ namespace TestMVVM.ViewModels
             }
 
         }
+
+        private void ResetValues()
+        {
+            ProgressStatus = 0;
+            ProgressStatusInPercents = 0;
+            valueInPercentEquivalent = 0;
+        }
+
 
     }
 }
